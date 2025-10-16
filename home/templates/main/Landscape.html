@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+ <!--============================== Breadcumb ============================== -->
+ <div class="breadcumb-wrapper " data-bg-src="{% static '' %}assets/img/bg/breadcumb-bg.jpg">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Landscape Service</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="home-company.html">Home</a></li>
+                <li>Landscape</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--============================== About Area  ==============================-->
+<div class="overflow-hidden overflow-hidden space" id="about-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="img-box3">
+                    <div class="img1">
+                        <img src="{% static '' %}assets/img/landscape/09.jpg" alt="About">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="title-area mb-20 pe-xl-5 me-xl-5">
+                    <span class="sub-title style1">Our Services</span>
+                    <h2 class="sec-title mb-20">Landscape</h2>
+                </div>
+                <p class="sec-text mb-30" align="justify">You would be surprised to know that Landscaping—the art of growing plants, shrubs and trees with an intention to beautify the area around, has more than one advantage. While landscaping definitely redefines your home and the area around it, it automatically enhances the property value too.<br><br>Most home owners go about landscaping to improve the appearances of their front and backyards barely realising the additional value it creates. A common perception and belief is that when it comes to selling homes all that is required is the appearance of home interior. Well, while a home and its interior are a must for enhancing the value of your property, considering the exterior will go a long way too.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+    <!-- 🌄 HERO SECTION -->
+    <section class="relative h-[60vh] flex items-center justify-center">
+      <img src="{{ service.image.url }}" 
+          class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-3">{{ service.title }}</h1>
+        <p class="text-indigo-200">
+          <i class="fa-solid fa-house"></i> Home / Services / {{ service.title }}
+        </p>
+      </div>
+    </section>
+
+
+    <!-- 📝 2. OVERVIEW SECTION -->
+    <section class="py-16 text-center">
+      <div class="container mx-auto max-w-4xl px-6">
+        <h2 class="text-3xl font-bold mb-4">Service Overview</h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto mb-6"></div>
+        <p class="text-gray-600 text-lg leading-relaxed">
+          {{service.description}}
+        </p>
+      </div>
+    </section>
+
+    <!-- 🧰 3. FEATURES SECTION -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">Key Features</h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto mb-12"></div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {% for rs in service_key_feature %}
+          <div class="text-center p-6 bg-gray-50 rounded-xl shadow hover:shadow-lg transition">
+            <i class="{{ rs.icon }} text-indigo-600 text-4xl mb-3"></i>
+            <h3 class="font-semibold text-lg mb-2">{{rs.title}}</h3>
+            <p class="text-sm text-gray-600">{{rs.description}}</p>
+          </div> 
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- 🖼️ 4. GALLERY SECTION -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-4">Project Gallery</h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto mb-12"></div>
+
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto snap-x snap-mandatory sm:overflow-visible">
+          {% for rs in service_images %}
+          <div class="relative group snap-start flex-shrink-0 sm:flex-shrink">
+            <img
+              src="{{ rs.image.url }}"
+              alt="Gallery Image {{ forloop.counter }}"
+              class="rounded-xl shadow w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer gallery-image"
+              data-index="{{ forloop.counter0 }}"
+            >
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-magnifying-glass text-white text-2xl"></i>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!-- 📜 5. CONTENT SECTION -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-6 max-w-4xl">
+        <h2 class="text-3xl font-bold text-center mb-4">About This Service</h2>
+        <div class="w-20 h-1 bg-indigo-600 mx-auto mb-8"></div>
+        <p class="text-gray-600 text-lg leading-relaxed text-justify">
+          {{service.aboutus}}
+      </div>
+    </section>
+
+
+
+      <!-- 📞 7. CTA SECTION -->
+      <section class="bg-indigo-800 text-white py-16 text-center">
+        <div class="container mx-auto px-6">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Interested in This Service?</h2>
+          <p class="text-indigo-200 max-w-2xl mx-auto mb-8">
+            Contact our experts today for a personalized consultation and bring your dream space to life.
+          </p>
+
+          <button 
+            onclick="openEnquiryPopup('{{ service.title }}')" 
+            class="px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition transform hover:scale-105"
+          >
+            Enquiry Now
+          </button>
+        </div>
+      </section>
+
+      <!-- 🧾 Enquiry Popup Modal -->
+      <div id="enquiryModal" class="fixed inset-0 bg-black/70 hidden z-50 items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
+          <!-- ❌ Close button -->
+          <button 
+            onclick="closeEnquiryPopup()" 
+            class="absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-2xl"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+
+          <!-- 📝 Title -->
+          <h3 id="enquiryTitle" class="text-2xl font-bold text-gray-800 mb-4 text-center"></h3>
+
+          <!-- 📬 Enquiry Form -->
+          <form method="post" action="{% url 'contactus' %}" class="space-y-4">
+            {% csrf_token %}
+            <!-- Name -->
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Your Name" 
+              class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-indigo-300"
+              required
+            >
+            <!-- Email -->
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your Email" 
+              class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-indigo-300"
+              required
+            >
+            <!-- Phone Number -->
+            <input 
+              type="tel" 
+              name="phone" 
+              placeholder="Your Phone Number" 
+              pattern="[0-9]{10}" 
+              maxlength="10"
+              class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-indigo-300"
+              required
+            >
+
+            <!-- Message -->
+            <textarea 
+              name="message" 
+              rows="4" 
+              placeholder="Your Message..." 
+              class="w-full border rounded px-3 py-2 focus:outline-none focus:ring focus:ring-indigo-300"
+              required
+            ></textarea>
+
+            <!-- Hidden service name -->
+            <input type="hidden" name="service_name" id="serviceNameField">
+
+            <button 
+              type="submit" 
+              class="w-full bg-indigo-600 text-white font-semibold py-2 rounded hover:bg-indigo-700 transition"
+            >
+              Submit Enquiry
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        function openEnquiryPopup(serviceName) {
+          document.getElementById('enquiryTitle').innerText = `Enquiry Now for ${serviceName}`;
+          document.getElementById('serviceNameField').value = serviceName;
+          const modal = document.getElementById('enquiryModal');
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }
+
+        function closeEnquiryPopup() {
+          const modal = document.getElementById('enquiryModal');
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+        }
+
+        // Close on clicking outside
+          document.getElementById('enquiryModal').addEventListener('click', function (e) {
+            if (e.target.id === 'enquiryModal') {
+              closeEnquiryPopup();
+            }
+          });
+      </script>
+
+
+
+{% endblock body %}

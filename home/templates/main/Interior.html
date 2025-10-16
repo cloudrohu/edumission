@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+<!--============================== Breadcumb ============================== -->
+<div class="breadcumb-wrapper " data-bg-src="{% static '' %}assets/img/bg/breadcumb-bg.jpg">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Interior Service</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="home-company.html">Home</a></li>
+                <li>Interior</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--============================== Interior Photo ==============================-->
+<section class="space">
+    <div class="container">
+        <div class="row gallery-row filter-active">
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat1">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/interior/int1.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Construction</p>
+                        <h3 class="box-title"><a>Building Construction</a></h3>
+                        <a href="{% static '' %}assets/img/interior/int1.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat2">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/interior/int2.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Industrial</p>
+                        <h3 class="box-title"><a>Industrial Design</a></h3>
+                        <a href="{% static '' %}assets/img/interior/int2.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat3">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/interior/int1.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Architect</p>
+                        <h3 class="box-title"><a>Architect Design</a></h3>
+                        <a href="{% static '' %}assets/img/interior/int1.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat4">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/interior/int2.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Residential</p>
+                        <h3 class="box-title"><a>Residential Design</a></h3>
+                        <a href="{% static '' %}assets/img/interior/int2.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

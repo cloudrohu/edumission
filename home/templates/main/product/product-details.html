@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+
+
+<!-- 🌟 1. HERO SECTION -->
+
+<section class="relative h-[60vh] flex items-center justify-center">
+  <img src="{{product.image.url}}" alt="Product Banner" class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/50"></div>
+  <div class="relative z-10 text-center text-white px-4">
+    <h1 class="text-4xl md:text-6xl font-bold mb-3">{{product.title}}</h1>
+    <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+      
+    </p>
+  </div>
+</section>
+
+<!-- 📝 2. ABOUT PRODUCT SECTION -->
+<section class="py-16 bg-white">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <img src="{{product.image.url}}" alt="Product" class="rounded-xl shadow-lg w-full h-[400px] object-cover">
+    </div>
+    <div>
+      <h2 class="text-3xl font-bold mb-4">About This Product</h2>
+      <p class="text-gray-700 leading-relaxed text-lg">
+      {{product.description}}
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock body %}

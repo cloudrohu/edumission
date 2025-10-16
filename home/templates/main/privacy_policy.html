@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy | {{ company_name | default:"Your Company" }}</title>
+  <meta name="description" content="Read the Privacy Policy of {{ company_name | default:'Your Company' }} explaining what data we collect, why we collect it, how we use it, and the choices you have.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji'; }
+    @media print {
+      .no-print { display: none !important; }
+      a[href]:after { content: " (" attr(href) ")"; font-size: 0.85em; }
+      body { color: #000; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Page Wrapper -->
+  <div class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-white border-b sticky top-0 z-20">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/static/img/logo.png" alt="{{ company_name | default:'Your Company' }} Logo" class="h-10 w-auto" onerror="this.style.display='none'">
+          <div>
+            <h1 class="text-xl font-semibold">Privacy Policy</h1>
+            <p class="text-xs text-gray-500">Last updated: <span id="pp-date">October 14, 2025</span></p>
+          </div>
+        </div>
+        <div class="no-print flex items-center gap-2">
+          <a href="{% url "contactus" %}" class="text-sm px-3 py-2 rounded-lg border hover:bg-gray-100">Contact</a>
+          <button onclick="window.print()" class="text-sm px-3 py-2 rounded-lg bg-gray-900 text-white hover:opacity-90">Print</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Intro / Breadcrumb -->
+    <section class="bg-gradient-to-b from-white to-gray-50 border-b">
+      <div class="max-w-5xl mx-auto px-4 py-8">
+        <p class="text-sm text-gray-500"><a href="/" class="hover:underline">Home</a> <span class="mx-1">›</span> Privacy Policy</p>
+        <h2 class="mt-3 text-2xl md:text-3xl font-semibold leading-tight">Your privacy matters to us</h2>
+        <p class="mt-2 text-gray-600 max-w-3xl">This Privacy Policy explains how <strong>{{ company_name | default:'Your Company' }}</strong> ("we", "us", or "our") collects, uses, shares, and safeguards your information when you visit our websites, use our apps, make enquiries, or interact with our services.</p>
+      </div>
+    </section>
+
+   
+
+    <!-- Content -->
+    <main class="max-w-5xl mx-auto px-4 py-8 space-y-10">
+      <!-- Scope -->
+      <section id="scope" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">1) Scope</h3>
+        <p class="mt-2 text-gray-700">This Policy applies to our websites, mobile applications, digital forms, WhatsApp communications, call-backs, property enquiry forms, lead campaigns, and offline interactions related to our services, properties, projects, or events. By using our services, you agree to the terms of this Policy.</p>
+      </section>
+
+      <!-- Information We Collect -->
+      <section id="data-we-collect" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">2) Information We Collect</h3>
+        <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+          <li><span class="font-medium">Contact & Identity:</span> name, email, phone, city, company, profession.</li>
+          <li><span class="font-medium">Enquiry & Preference Data:</span> budget, property type, configuration (e.g., 1/2/3 BHK), preferred location, timeline, notes.</li>
+          <li><span class="font-medium">Transactional:</span> bookings, invoices, payments, and documents you share.</li>
+          <li><span class="font-medium">Communications:</span> messages, call recordings (where permitted), WhatsApp chats, feedback, and support requests.</li>
+          <li><span class="font-medium">Technical:</span> IP address, device, browser, pages viewed, UTM/source, cookies, approximate location.</li>
+          <li><span class="font-medium">Third‑party Data:</span> data from channel partners, listing portals, ad platforms, or builders when you consented there.</li>
+          <li><span class="font-medium">Sensitive/Official IDs:</span> Only where strictly necessary and lawful (e.g., KYC after booking). We do <span class="font-semibold">not</span> collect Aadhaar biometrics.</li>
+        </ul>
+        <p class="mt-3 text-gray-700">You may refuse to share certain data; however, some features (like scheduling site visits or bookings) may require specific information.</p>
+      </section>
+
+      <!-- How We Use -->
+      <section id="how-we-use" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">3) How We Use Your Information</h3>
+        <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+          <li>Provide, operate, and improve our websites, apps, and services.</li>
+          <li>Respond to enquiries, schedule site visits, share project details, and manage bookings.</li>
+          <li>Send transactional updates, service notifications, and important policy changes.</li>
+          <li>Personalize content, recommendations, and offers based on your preferences.</li>
+          <li>Run analytics, measure campaign performance, and prevent fraud or abuse.</li>
+          <li>Comply with legal obligations, resolve disputes, and enforce agreements.</li>
+          <li>With your consent, send marketing communications via email, SMS, or WhatsApp (opt‑out anytime).</li>
+        </ul>
+      </section>
+
+      <!-- Legal Bases -->
+      <section id="legal-bases" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">4) Legal Bases / Lawful Use</h3>
+        <p class="mt-2 text-gray-700">Depending on your location, we rely on one or more of the following legal bases:</p>
+        <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+          <li><span class="font-medium">Consent</span> (e.g., marketing opt‑ins, cookies).</li>
+          <li><span class="font-medium">Contractual necessity</span> (to provide services you request).</li>
+          <li><span class="font-medium">Legitimate interests</span> (to improve services, prevent fraud).</li>
+          <li><span class="font-medium">Legal compliance</span> (tax, accounting, KYC obligations).</li>
+        </ul>
+        <p class="mt-3 text-gray-700">For India, we align with the Digital Personal Data Protection Act, 2023 (DPDP Act) and the IT Act/Rules as applicable.</p>
+      </section>
+
+      <!-- Cookies -->
+      <section id="cookies" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">5) Cookies & Tracking</h3>
+        <p class="mt-2 text-gray-700">We use cookies, pixels, and similar technologies to remember your preferences, understand how you use our site, and improve marketing. You can control non‑essential cookies via your browser or our cookie banner (where available). Disabling some cookies may affect site functionality.</p>
+      </section>
+
+      <!-- Sharing -->
+      <section id="sharing" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">6) When We Share Your Information</h3>
+        <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+          <li><span class="font-medium">Service providers</span> (hosting, analytics, payment, customer support) under confidentiality obligations.</li>
+          <li><span class="font-medium">Channel partners/builders</span> to service your property enquiry, schedule visits, or process bookings.</li>
+          <li><span class="font-medium">Legal or regulatory</span> requests, to protect rights, safety, or prevent fraud.</li>
+          <li><span class="font-medium">Business transfers</span> (merger, acquisition, or asset sale) with appropriate safeguards.</li>
+          <li>We do <span class="font-semibold">not</span> sell your personal data.</li>
+        </ul>
+      </section>
+
+      <!-- Retention -->
+      <section id="retention" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">7) Data Retention</h3>
+        <p class="mt-2 text-gray-700">We retain personal data only as long as necessary for the purposes in this Policy and to comply with legal, accounting, or reporting requirements. The retention period may differ for leads, bookings, and support records.</p>
+      </section>
+
+      <!-- Your Rights -->
+      <section id="your-rights" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">8) Your Choices & Rights</h3>
+        <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+          <li>Access, correct, update, or delete certain personal information.</li>
+          <li>Withdraw consent where processing is based on consent (e.g., marketing).</li>
+          <li>Opt out of marketing communications at any time (follow unsubscribe instructions).</li>
+          <li>Request a copy of your data, or ask us to restrict/ object to processing as per applicable law.</li>
+        </ul>
+        <p class="mt-3 text-gray-700">To exercise your rights, please contact us using the details in the <a href="{% url "contactus" %}" class="underline">Contact</a> section. We may need to verify your identity before acting on your request.</p>
+      </section>
+
+      <!-- Security -->
+      <section id="security" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">9) Security</h3>
+        <p class="mt-2 text-gray-700">We implement technical and organizational measures appropriate to the risk, including encryption in transit, access controls, and staff training. However, no method of transmission or storage is 100% secure.</p>
+      </section>
+
+      <!-- Children -->
+      <section id="children" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">10) Children’s Privacy</h3>
+        <p class="mt-2 text-gray-700">Our services are not directed to children under 18. We do not knowingly collect data from children. If you believe a child has provided us personal data, please contact us so we can delete it.</p>
+      </section>
+
+      <!-- Changes -->
+      <section id="changes" class="bg-white rounded-2xl shadow-sm border p-6">
+        <h3 class="text-xl font-semibold">11) Changes to This Policy</h3>
+        <p class="mt-2 text-gray-700">We may update this Policy to reflect changes in law or our practices. We will post the updated date at the top and, where appropriate, notify you via email or site notice.</p>
+      </section>
+
+      <!-- Contact / Grievance Officer (India) -->
+
+   
+    </main>
+
+  </div>
+
+ 
+</body>
+</html>

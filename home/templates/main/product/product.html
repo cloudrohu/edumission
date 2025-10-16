@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+ <!-- 🌟 HERO SECTION -->
+<section class="relative h-[45vh] flex items-center justify-center">
+  <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg" 
+       alt="Product Banner" 
+       class="absolute inset-0 w-full h-full object-cover">
+  <div class="absolute inset-0 bg-black/60"></div>
+  <div class="relative z-10 text-center text-white px-4">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">Our Premium Product Collection</h1>
+    <p class="text-indigo-200 max-w-2xl mx-auto">
+      Explore our exclusive range of aluminium & uPVC doors, windows and glass solutions designed to redefine modern living.
+    </p>
+  </div>
+</section>
+
+
+
+<!-- 🛍️ PRODUCT GRID SECTION -->
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+
+    {% for product in product %}
+      <div class="product-card bg-white rounded-2xl shadow hover:shadow-2xl transition overflow-hidden group">
+        <div class="overflow-hidden">
+          <img src="{{product.image.url}}" alt="Product 1" class="w-full h-56 object-cover transition-transform duration-500">
+        </div>
+        <div class="p-5 flex flex-col justify-between h-[220px]">
+          <div>
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-indigo-600 transition">{{product.title}}</h3>
+            <p class="text-gray-600 text-sm mb-4">
+              {{product.description|truncatechars:70}}
+            </p>
+          </div>
+          <a href="#" class="block text-center bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-2 rounded-lg font-medium hover:shadow-lg transition">
+            View Details
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+
+      <!-- 👇 Add more cards to simulate pagination -->
+
+    </div>
+
+    <!-- 📄 PAGINATION -->
+    <div class="flex justify-center items-center mt-12">
+      <nav class="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+        <a href="#" class="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
+          <i class="fa-solid fa-chevron-left"></i>
+        </a>
+        <a href="#" class="px-3 py-2 leading-tight text-white bg-indigo-600 border border-gray-300 hover:bg-indigo-700">1</a>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">3</a>
+        <a href="#" class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </nav>
+    </div>
+
+  </div>
+</section>
+
+{% endblock body %}

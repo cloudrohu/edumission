@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blog Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .blog-card:hover img {
+      transform: scale(1.05);
+    }
+    .blog-card img {
+      transition: transform 0.5s ease;
+    }
+    #blogPopup.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+    #blogPopup {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+  </style>
+</head>
+<body class="bg-[#faf4eb]">
+
+  <!-- ========================== BLOG SECTION START ========================== -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold mb-3">Our Latest Blogs</h2>
+      <div class="w-20 h-[3px] bg-[#955c5a] mx-auto rounded"></div>
+      <p class="text-gray-600 mt-3 max-w-2xl mx-auto">
+        Stay updated with the latest insights, tips, and educational trends.
+      </p>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+      <!-- Blog Card 1 -->
+
+
+        {% for rs in blog %}
+      <div class="blog-card bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group">
+        <div class="overflow-hidden">
+          <img src="{{rs.image.url}}" alt="" class="w-full h-48 object-cover">
+        </div>
+        <div class="p-5 text-left">
+          <p class="text-sm text-gray-500 mb-2">{{rs.create_at}}</p>
+          <h3 class="text-xl font-semibold mb-2 group-hover:text-[#955c5a] transition">
+            {{rs.title}}
+          </h3>
+          <p class="text-gray-600 line-clamp-3 mb-3">
+            {{rs.Desciription}}
+          </p>
+          <button class="read-more text-[#955c5a] font-semibold hover:underline" 
+            data-title="{{rs.title}}" 
+            data-content="{{rs.Desciription}}">
+            Read More →
+          </button>
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+    </div>
+  </section>
+  <!-- ========================== BLOG SECTION END ========================== -->
+
+
+  <!-- ========================== BLOG POPUP ========================== -->
+  <div id="blogPopup" class="fixed inset-0 bg-black/60 flex justify-center items-center px-4 z-50">
+    <div class="bg-white rounded-xl max-w-2xl w-full p-6 relative shadow-2xl">
+      <button id="popupClose" class="absolute top-3 right-3 text-2xl font-bold text-gray-500 hover:text-red-500">&times;</button>
+      <h3 id="popupTitle" class="text-2xl font-bold mb-3"></h3>
+      <div id="popupContent" class="text-gray-700 leading-relaxed max-h-[60vh] overflow-y-auto"></div>
+    </div>
+  </div>
+
+  <!-- ========================== SCRIPT ========================== -->
+  <script>
+    const readMoreBtns = document.querySelectorAll('.read-more');
+    const popup = document.getElementById('blogPopup');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupContent = document.getElementById('popupContent');
+    const popupClose = document.getElementById('popupClose');
+
+    popup.classList.remove('show'); // start hidden
+
+    readMoreBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        popupTitle.textContent = btn.getAttribute('data-title');
+        popupContent.textContent = btn.getAttribute('data-content');
+        popup.classList.add('show');
+      });
+    });
+
+    popupClose.addEventListener('click', () => {
+      popup.classList.remove('show');
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) popup.classList.remove('show');
+    });
+  </script>
+
+</body>
+</html>
+
+
+{% endblock body %}

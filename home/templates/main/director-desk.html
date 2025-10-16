@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+<!--============================== Breadcumb ============================== -->
+<div class="breadcumb-wrapper " data-bg-src="{% static '' %}assets/img/bg/breadcumb-bg.jpg">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Director Desk</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="home-company.html">Home</a></li>
+                <li>Director</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--============================== Director Desk Area  ==============================-->
+<div class="overflow-hidden overflow-hidden space" id="about-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="img-box3">
+                    <div class="img1">
+                        <img src="{% static '' %}assets/img/dd/1.jpg" alt="About">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="title-area mb-20 pe-xl-5 me-xl-5">
+                    <span class="sub-title style1">About Director</span>
+                    <h2 class="sec-title mb-20">We Are Always Think On Your Dream</h2>
+                </div>
+                <p class="sec-text mb-30" align="justify">Imaarat Group, under the visionary leadership of AR. Murshid Raza, stands as a beacon of excellence in the fields of planning, interior design, and landscaping. AR. Murshid Raza, a distinguished alumnus of Jamia Millia Islamia, New Delhi, with both a Bachelor's and a Master's degree, brings a wealth of knowledge and an innovative approach to every project. With a legacy of transforming over a thousand spaces across Delhi, Noida, Lucknow, Azamgarh, and Jharkhand, Imaarat Group has earned a reputation for delivering bespoke and high-quality solutions. Our portfolio reflects a diverse range of projects, each uniquely crafted to meet the specific needs and aspirations of our clients. At Imaarat Group, we believe that every space has the potential to inspire and enhance the lives of its occupants. Our team of skilled professionals is dedicated to creating environments that are not only aesthetically pleasing but also functional and sustainable. We approach each project with meticulous attention to detail, ensuring that our designs are both innovative and practical. <br><br> Our services encompass comprehensive planning that lays the foundation for successful projects, sophisticated interior designs that reflect personal and corporate identities, and thoughtfully designed landscapes that harmonize with the natural environment. Our commitment to excellence, client-centric approach, and unwavering dedication to quality have made us a trusted partner in the industry. We invite you to explore the possibilities with Imaarat Group and experience the difference that expertise and passion can make in your next project.</p>
+                <div class="about-item-wrap">
+                    <div class="about-item">
+                        <div class="about-item_img"><img src="{% static '' %}assets/img/icon/about_1_1.svg" alt=""></div>
+                        <div class="about-item_centent">
+                            <h5 class="box-title">Expertise</h5>
+                            <p class="about-item_text">Architecture Planning, Interior Designing</p>
+                        </div>
+                    </div>
+                    <div class="about-item">
+                        <div class="about-item_img"><img src="{% static '' %}assets/img/icon/about_1_2.svg" alt=""></div>
+                        <div class="about-item_centent">
+                            <h5 class="box-title">Certified & Awards winner</h5>
+                            <p class="about-item_text">Certified from Jamia Millia Islamia New Delhi</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-signature style2">
+                    <div class="signature">
+                        <img src="{% static '' %}assets/img/dd/2.png" alt="signature">
+                    </div>
+                    <div class="content">
+                        <h6 class="name">Murshid Raza</h6>
+                        <span class="desig">Founder of Imaarat Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

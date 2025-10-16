@@ -1,0 +1,710 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block slider %} {% include 'main/slider.html' %} {% endblock %}
+
+<style>
+  /* Default hidden scrollbar */
+  #servicesContainer::-webkit-scrollbar {
+    height: 8px;
+    background: transparent;
+  }
+
+  #servicesContainer::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #servicesContainer::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  /* Show styled scrollbar on hover */
+  #servicesContainer:hover::-webkit-scrollbar-track {
+    background: #f1e8dd;
+  }
+
+  #servicesContainer:hover::-webkit-scrollbar-thumb {
+    background: #a86b69;
+    transition: background 0.3s;
+  }
+
+  #servicesContainer:hover::-webkit-scrollbar-thumb:hover {
+    background: #955c5a;
+  }
+</style>
+
+
+
+{% block body %}
+
+
+{% for rs in setting %}
+
+
+<main>
+
+
+      <!-- OUR SERVICES START HERE -->
+      <section class="bg-[#f8f1e6] py-16 relative">
+        <div class="max-w-7xl mx-auto px-4">
+          <!-- Heading -->
+          <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Our Services</h2>
+            <div class="h-[2px] w-20 bg-[#a86b69] mx-auto mt-2"></div>
+            <p class="text-gray-600 mt-3 text-lg">What We Offer</p>
+          </div>
+
+    
+
+          <!-- Slider Container -->
+         <div id="servicesContainer" class="flex gap-8 overflow-x-auto scroll-smooth pb-6 snap-x snap-mandatory">
+
+            
+          
+            {% for rs in service %}
+            <!-- CARD 1 -->
+            <div class="flex-shrink-0 w-full md:w-[48%] lg:w-[32%] bg-white rounded-lg shadow-lg overflow-hidden group">
+              <div class="overflow-hidden">
+                <img src="{{rs.image.url}}" 
+                    alt="Service 1" class="w-full h-60 object-cover group-hover:scale-105 transition duration-500">
+              </div>
+              <div class="p-6 text-center">
+                <h3 class="font-bold text-lg mb-3 text-gray-900">{{rs.title}}</h3>
+                <p class="text-gray-600 mb-5 text-sm">
+                  {{rs.description |truncatechars:250}}
+                </p>
+                <a href="contactus">
+                <button class="w-10 h-10 flex items-center justify-center rounded-full bg-[#a86b69] text-white hover:bg-[#955c5a] transition mx-auto">
+                  →
+                </button>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR SERVICES END HERE -->
+    <hr>
+
+
+        <!-- ABOUT SECTION START -->
+        <section class="bg-[] py-16">
+          <div class="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10">
+            {% for rs in about %}
+            <!-- Left Image -->
+            <div class="flex-1">
+              <img 
+                src="{{rs.image.url}}" 
+                alt="About {{rs.title}}" 
+                class="w-full h-[400px] object-cover rounded-lg shadow-md"
+              >
+            </div>
+
+            {% endfor %}
+
+
+            {% for rs in about %}
+
+            <!-- Right Content -->
+            <div class="flex-1">
+              <h2 class="text-3xl font-bold text-gray-900 mb-2">About {{rs.title}}</h2>
+              <div class="h-[2px] w-20 bg-[#a86b69] mb-4"></div>
+
+              <h3 class="text-2xl font-bold text-gray-900 leading-snug mb-4">
+                {{rs.keywords}} <br class="hidden md:block" />
+              </h3>
+
+              <p class="text-gray-700 leading-relaxed mb-4">
+                {{rs.description}}
+              </p>
+
+              <a href="{% url "aboutus" %}"
+                  class="mt-1 inline-flex items-center space-x-2 bg-[#a86b69] text-white font-semibold px-6 py-2 rounded-md shadow-md hover:bg-[#955c5a] transition">
+                  <span>Know More</span>
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            {% endfor %}
+
+
+          </div>
+        </section>
+        <!-- ABOUT SECTION END -->
+
+      <hr>
+
+      <!--  FULL TIME PROGRAM SECTION START  -->
+      <section class="bg-[#f8f1e6] py-16">
+        <div class="max-w-7xl mx-auto px-4">
+
+          <!-- Section Title -->
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900">
+              Choose the best suitable Master's or Postgraduate program for you
+            </h2>
+            <div class="h-[2px] w-48 bg-[#a86b69] mx-auto mt-3"></div>
+            <h3 class="text-xl md:text-2xl font-semibold mt-6">
+              Full Time Program
+            </h3>
+            <div class="h-[2px] w-28 bg-[#a86b69] mx-auto mt-2"></div>
+          </div>
+
+          <!-- LOOP -->
+          {% for p in full_time_program %}
+            <div class="flex flex-col {% if forloop.counter|divisibleby:2 %}lg:flex-row-reverse{% else %}lg:flex-row{% endif %} items-start gap-8 mb-12">
+              
+              <!-- Image -->
+              <div class="flex-1">
+                {% if p.image %}
+                  <img src="{{ p.image.url }}" alt="{{ p.Title }}" class="w-full h-[300px] object-cover rounded-lg shadow-md">
+                {% else %}
+                  <img src="{% static 'assets/images/default-image.jpg' %}" alt="Default Image" class="w-full h-[300px] object-cover rounded-lg shadow-md">
+                {% endif %}
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-2 text-gray-900">{{ p.Title }}</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                  {{ p.Description }}
+                </p>
+                <a href="#">
+                  <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
+                    Enquire Now
+                  </button>
+                </a>
+              </div>
+
+            </div>
+          {% endfor %}
+
+        </div>
+      </section>
+      <!--  FULL TIME PROGRAM SECTION END  -->
+      <hr>
+
+
+
+        <!--  ONLINE PROGRAMS SECTION START  -->
+        <section class="bg-[#f8f1e6] py-16">
+          <div class="max-w-7xl mx-auto px-4">
+
+            <!-- Section Title -->
+            <div class="text-center mb-12">
+              <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Online Programs</h2>
+              <div class="h-[2px] w-36 bg-[#a86b69] mx-auto mt-3"></div>
+            </div>
+
+          {% for rs in online_program %}
+
+
+            <!-- University Row -->
+            <div class="flex flex-col lg:flex-row items-start gap-8">
+              
+              <!-- Image -->
+              <div class="flex-1">
+                <img 
+                  src="{{rs.image.url}}" 
+                  alt="KJ Somaiya Institute of Management" 
+                  class="w-full h-[300px] object-cover rounded-lg shadow-md">
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-3 text-gray-900">
+                  {{rs.Title}}
+                </h3>
+                <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
+                <p class="text-gray-700 leading-relaxed mb-5">
+                  {{rs.Description}}
+                </p>
+                <a href="#">
+                  <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
+                    Enquire Now
+                  </button>
+                </a>
+              </div>
+
+            </div>
+
+          {% endfor %}
+
+
+          </div>
+        </section>
+        <!--  ONLINE PROGRAMS SECTION END  -->
+
+    <hr>
+
+
+
+      <!-- ===== REVIEWS SECTION ===== -->
+      <section id="reviews" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 md:px-12 lg:px-20">
+          
+          <!-- Heading -->
+          <div class="text-center mb-12">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-gray-600 mb-4">What Our Clients Say</h2>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              Loved by homeowners, trusted by businesses. Here’s why people choose us.
+            </p>
+          </div>
+
+          <!-- Swiper Slider -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              
+              {% for review in reviews %}
+              <div class="swiper-slide">
+                <div class="bg-white rounded-2xl shadow-md p-8 text-center h-[40vh]">
+                  
+                  <!-- 👇 Default / Random Image -->
+                  <img src="data:image/png;base64,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" alt="Avatar" class="w-20 h-20 rounded-full mx-auto mb-4 shadow-md">
+
+
+                  <h3 class="text-lg font-semibold text-gray-800">{{ review.name }}</h3>
+                  <p class="text-sm text-gray-500 mb-2">{{ review.location }}</p>
+
+                  <!-- ⭐ Dynamic Star Rating -->
+                  <div class="flex justify-center mb-4 text-yellow-400">
+                    {% for i in "12345"|make_list %}
+                      {% if review.rating|floatformat:1 >= i %}
+                        <i class="fa-solid fa-star"></i>
+                      {% elif review.rating|floatformat:1 >= i|add:"-0.5" %}
+                        <i class="fa-solid fa-star-half-alt"></i>
+                      {% else %}
+                        <i class="fa-regular fa-star"></i>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+
+                  <p class="text-gray-600">"{{ review.message}}"</p>
+                </div>
+              </div>
+              {% endfor %}
+
+            </div>
+            <div class="swiper-pagination mt-8"></div>
+          </div>
+
+        </div>
+      </section>
+      <!-- ===== REVIEWS SECTION END===== -->
+      <hr>
+
+
+
+      <!--  ONLINE UNIVERSITIES SECTION START  -->
+      <section class="bg-[#f8f1e6] py-16">
+        <div class="max-w-7xl mx-auto px-4">
+
+          <!-- SECTION HEADING -->
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Online Universities</h2>
+            <div class="h-[2px] w-36 bg-[#a86b69] mx-auto mt-3"></div>
+          </div>
+
+          <!-- LOOP THROUGH UNIVERSITIES -->
+          {% for uni in online_universities %}
+            <div class="flex flex-col {% if forloop.counter|divisibleby:2 %}lg:flex-row-reverse{% else %}lg:flex-row{% endif %} items-start gap-8 mb-12">
+              
+              <!-- Image -->
+              <div class="flex-1">
+                {% if uni.image %}
+                  <img src="{{ uni.image.url }}" alt="{{ uni.Title }}" class="w-full h-[300px] object-cover rounded-lg shadow-md">
+                {% else %}
+                  <img src="{% static 'assets/images/default-image.jpg' %}" alt="Default Image" class="w-full h-[300px] object-cover rounded-lg shadow-md">
+                {% endif %}
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold mb-2 text-gray-900">{{ uni.Title }}</h3>
+                <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
+                <p class="text-gray-700 leading-relaxed mb-5">
+                  {{ uni.Description }}
+                </p>
+                <a href="#">
+                  <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
+                    Enquire Now
+                  </button>
+                </a>
+              </div>
+
+            </div>
+          {% empty %}
+            <p class="text-center text-gray-600">No Online Universities added yet.</p>
+          {% endfor %}
+
+        </div>
+      </section>
+      <!--  ONLINE UNIVERSITIES SECTION END  -->
+    <hr>
+
+
+      <!-- ===== CONTACT SECTION ===== -->
+          <section id="contact" class="relative py-20 bg-gradient-to-r from-indigo-50 via-white to-indigo-50">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+
+              <!-- Heading -->
+              <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Contact Us</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                  Let’s connect and bring your vision to life. Our team is ready to assist you.
+                </p>
+              </div>
+
+              <!-- Grid -->
+              <div class="grid gap-10 lg:grid-cols-2">
+
+                <!-- Contact Info Card -->
+                <div class="bg-white rounded-2xl shadow-xl p-10 border border-gray-100">
+                  <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get in Touch</h3>
+
+                  <div class="space-y-6">
+                    <div class="flex items-center gap-4">
+                      <div class="p-4 bg-indigo-100 text-indigo-600 rounded-xl shadow">
+                        <i class="fa-solid fa-phone text-xl"></i>
+                      </div>
+                      <div>
+                        <p class="text-gray-600">Call Us</p>
+                        <a href="tel:+91{{rs.phone}}" class="font-semibold text-gray-900 hover:text-indigo-600">
+                          +91 {{rs.phone}}
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                      <div class="p-4 bg-indigo-100 text-indigo-600 rounded-xl shadow">
+                        <i class="fa-solid fa-envelope text-xl"></i>
+                      </div>
+                      <div>
+                        <p class="text-gray-600">Email</p>
+                        <a href="mailto:{{rs.email}}" class="font-semibold text-gray-900 hover:text-indigo-600">
+                          {{rs.email}}
+                        </a>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                      <div class="p-4 bg-indigo-100 text-indigo-600 rounded-xl shadow">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
+                      </div>
+                      <div>
+                        <p class="text-gray-600">Office</p>
+                        <p class="font-semibold text-gray-900">{{rs.address}}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Social Links -->
+                  <div class="flex items-center gap-6 mt-8">
+                    <a href="{{rs.facebook}}" class="text-indigo-600 hover:text-indigo-800"><i class="fa-brands fa-facebook-f text-xl"></i></a>
+                    <a href="{{rs.instagram}}" class="text-indigo-600 hover:text-indigo-800"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="{{rs.twitter}}" class="text-indigo-600 hover:text-indigo-800"><i class="fa-brands fa-twitter text-xl"></i></a>
+                  </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="backdrop-blur-xl bg-white/80 rounded-2xl shadow-xl border border-gray-200 p-10">
+                  <form action="{% url 'submit_form' %}" method="POST" class="space-y-6">
+                    {% csrf_token %}
+                    <!-- Name -->
+                    <div>
+                      <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                      <div class="relative mt-2">
+                        <i class="fa-solid fa-user absolute left-4 top-3 text-gray-400"></i>
+                        <input type="text" id="name" name="name" required placeholder="Please Enter Your Name"
+                          class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+                      </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                      <label for="email" class="block text-sm font-medium text-gray-700">Your Email</label>
+                      <div class="relative mt-2">
+                        <i class="fa-solid fa-envelope absolute left-4 top-3 text-gray-400"></i>
+                        <input type="email" id="email" name="email" required placeholder="Please Enter Your Email"
+                          class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+                      </div>
+                    </div>
+
+                    <!-- Phone -->
+                    <div>
+                      <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                      <div class="relative mt-2">
+                        <i class="fa-solid fa-phone absolute left-4 top-3 text-gray-400"></i>
+                        <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}"
+                          placeholder="Enter your 10-digit number"
+                          class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+                      </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                      <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                      <textarea id="message" name="message" rows="5" required placeholder="Please Enter Your Message"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none"></textarea>
+                    </div>
+
+                    <!-- Submit -->
+                    <button type="submit"
+                      class="w-full py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 hover:shadow-lg transition transform hover:-translate-y-0.5">
+                      <i class="fa-solid fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                  </form>
+                </div>
+
+
+              </div>
+            </div>
+
+                    <!-- ===== GOOGLE MAP SECTION ===== -->
+                    
+            <br>
+
+            <style>
+              iframe{
+                  width: 100%;
+              }
+            </style>
+
+                <section id="map" class="w-full">
+                  <div class="w-full h-[600px]">
+                    {{ rs.google_map|safe }}
+                  </div>
+                </section>
+          </section>
+      <!-- ===== CONTACT SECTION END ===== -->
+      <hr>
+
+      <section class="bg-[#f8f1e6] py-16">
+        <div class="max-w-7xl mx-auto px-4">
+
+          <!-- SECTION HEADING -->
+          <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Online Universities</h2>
+            <div class="h-[2px] w-36 bg-[#a86b69] mx-auto mt-3"></div>
+          </div>
+
+          <!-- UNIVERSITY 1 - Amity (Image Left) -->
+          <div class="flex flex-col lg:flex-row items-start gap-8 mb-12">
+            <!-- Image -->
+            <div class="flex-1">
+              <img 
+                src="https://www.edumissions.in/appassets/mediaassets/7b06574086fb4125a0a96c208eef0d19/image/Amity_University_Online_2_be6c997565.webp" 
+                alt="Amity University Online" 
+                class="w-full h-[300px] object-cover rounded-lg shadow-md">
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-2 text-gray-900">Amity University Online</h3>
+              <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
+              <p class="text-gray-700 leading-relaxed mb-5">
+                Amity University Online offers a range of undergraduate and postgraduate programs in various fields 
+                like business administration, marketing, and technology. Known for its excellent infrastructure and 
+                industry-oriented curriculum, Amity Online provides students with the flexibility to study from anywhere 
+                while gaining insights from experienced faculty and industry leaders.
+              </p>
+              <a href="#">
+                <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
+                  Enquire Now
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <!-- UNIVERSITY 2 - SMU (Image Right) -->
+          <div class="flex flex-col lg:flex-row-reverse items-start gap-8">
+            <!-- Image -->
+            <div class="flex-1">
+              <img 
+                src="https://www.edumissions.in/appassets/mediaassets/7b06574086fb4125a0a96c208eef0d19/image/SMU[1].jpg" 
+                alt="Sikkim Manipal University" 
+                class="w-full h-[300px] object-cover rounded-lg shadow-md">
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1">
+              <h3 class="text-2xl font-bold mb-2 text-gray-900">
+                Sikkim Manipal University (SMU) Distance Education
+              </h3>
+              <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
+              <p class="text-gray-700 leading-relaxed mb-5">
+                Sikkim Manipal University offers a diverse range of online and distance education programs. 
+                SMU's online programs are designed to provide high-quality learning to students in various fields 
+                like business management, technology, and healthcare. The university’s advanced e-learning system 
+                ensures a seamless educational experience for students from all over the world.
+              </p>
+              <a href="#">
+                <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
+                  Enquire Now
+                </button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <!--  ONLINE UNIVERSITIES SECTION END  -->
+      <hr>
+
+
+
+      <!--  CONSULTATION BOOKING SECTION START  -->
+        <section class="bg-[#f8f1e6] py-12" id="  
+        ">
+          <div class="max-w-6xl mx-auto px-4">
+            
+            <!-- Heading -->
+            <div class="text-center mb-8">
+              <h2 class="text-2xl font-bold text-gray-900">
+                Book your <span class="text-[#a86b69]">Free Consultation</span>
+              </h2>
+              <div class="h-[2px] w-32 bg-[#a86b69] mx-auto mt-2"></div>
+              <p class="text-gray-600 mt-2 max-w-2xl mx-auto text-sm">
+                Schedule a consultation today and take the first step towards your educational journey with personalized expert guidance.
+              </p>
+            </div>
+
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+              
+              <!-- LEFT FORM -->
+              <div class="bg-white p-5 rounded-xl shadow-lg border border-gray-100">
+                    <form id="consultationForm" action="{% url "consultation_success" %}" method="POST"  class="space-y-4">
+                          {% csrf_token %}
+                        <!-- Name -->
+                        <input type="text" placeholder="Full Name" required name="name"
+                          class="w-full rounded-lg border border-gray-300 px-3 py-1.5 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+
+                        <!-- Email -->
+                        <input type="email" placeholder="Email" required name="email"
+                          class="w-full rounded-lg border border-gray-300 px-3 py-1.5 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+
+                        <!-- Phone -->
+                        <input type="tel" placeholder="Mobile Number" pattern="[0-9]{10}" required name="phone"
+                          class="w-full rounded-lg border border-gray-300 px-3 py-1.5 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+
+                        <!-- Group: Date & Time -->
+                        <div class="grid grid-cols-2 gap-4">
+                          <input type="date" required name="date"
+                            class="w-full rounded-lg border border-gray-300 px-3 py-1.5 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+
+                          <select required name="time"
+                            class="w-full rounded-lg border border-gray-300 px-3 py-1.5 text-gray-600 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+                            <option value="">Select Time</option>
+                            {% for rs in time_select %}
+                            <option>{{rs.time}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+
+                        <!-- Group: Mode & Grad Year -->
+                        <div class="grid grid-cols-2 gap-4">
+                          <select required name="mode"
+                            class="w-full rounded-lg border border-gray-300 px-3 py-1.5 text-gray-600 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+                            <option value="">Select Mode</option>
+                            <option>Online</option>
+                            <option>Offline</option>
+                          </select>
+
+                          <select required name="graduation_year"
+                            class="w-full rounded-lg border border-gray-300 px-3 py-1.5 text-gray-600 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+                            <option value="">Graduation Year</option>
+                            {% for rs in graduation_year %}
+                            <option>{{rs.title}}</option>
+                            {% endfor %}
+                          </select>
+                        </div>
+
+                        <!-- Specialization -->
+                        <select name="specialization" required name="specialization"
+                          class="w-full rounded-lg border border-gray-300 px-3 py-1.5 text-gray-600 
+                          focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+
+                          <option value="">Specialization interested in MBA</option>
+                          {% for s in specialization %}
+                            <option value="">{{ s.title }}</option>
+                          {% endfor %}
+                        </select>
+
+
+                            <select required name="entrance_exam"
+                                class="w-full rounded-lg border border-gray-300 px-3 py-1.5 text-gray-600 
+                                      focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+                                <option value="">Entrance Exams</option>
+                                {% for exam in entrance_exams_appeared %}
+                                    <option value="{{ exam.id }}">{{ exam.title }}</option>
+                                {% endfor %}
+                            </select>
+
+
+                            <!-- Score -->
+                            <input type="number" placeholder="Entrance Exam Score" name="score"
+                              class="w-full rounded-lg border border-gray-300 px-3 py-1.5 focus:border-[#a86b69] focus:ring-1 focus:ring-[#a86b69] focus:outline-none">
+
+                            <!-- Submit -->
+                            <button type="submit"
+                              class="relative overflow-hidden w-full bg-[#a86b69] text-white font-semibold py-2.5 rounded-lg group transition">
+                              <span class="relative z-10">Book Your Slot</span>
+                              <span class="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></span>
+                            </button>
+
+                    </form>
+                </div>
+
+                          <!-- RIGHT IMAGE -->
+                          <div class="hidden lg:block">
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.sVXb04psBdio4eE08E1obQHaEK?cb=12&w=474&h=474&c=7&p=0"
+                              alt="Consultation" class="rounded-xl shadow-xl w-full object-cover h-[500px]">
+                          </div>
+                </div>
+            </div>
+
+        </section>
+      <!--  CONSULTATION BOOKING SECTION END  -->
+      <hr>
+
+        
+
+
+</main>
+
+
+
+<main-scripts>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        768: { slidesPerView: 2 }, // tablet
+        1024: { slidesPerView: 3 } // desktop
+    }
+    });
+  </script>
+
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+</main-scripts>
+
+{% endfor %}
+
+
+
+
+
+{% endblock body %}

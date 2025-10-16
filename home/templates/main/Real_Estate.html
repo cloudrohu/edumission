@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+<!--============================== Breadcumb ============================== -->
+<div class="breadcumb-wrapper " data-bg-src="{% static '' %}assets/img/bg/breadcumb-bg.jpg">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Real Estate Services</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="index.html">Home</a></li>
+                <li>Real Estate</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--============================== Area ==============================-->
+    <section class="space">
+    <div class="container">
+        <div class="title-area text-center mb-40">
+            <span class="sub-title">Site</span>
+            <h2 class="sec-title">Site</h2>
+        </div>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat1">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/realestate/1.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Green Enclave Phase 3</p>
+                        <h3 class="box-title"><a>Click on Plus Sign</a></h3>
+                        <a href="{% static '' %}assets/img/realestate/01.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div><br><br><br><br>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat2">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/realestate/2.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Green Enclave Phase 3</p>
+                        <h3 class="box-title"><a>Click on Plus Sign</a></h3>
+                        <a href="{% static '' %}assets/img/realestate/02.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div><br><br><br><br>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat1">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/realestate/3.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Green Enclave Phase 4</p>
+                        <h3 class="box-title"><a>Click on Plus Sign</a></h3>
+                        <a href="{% static '' %}assets/img/realestate/03.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div><br><br><br><br>
+            <!-- Single Item -->
+            <div class="col-md-6 col-xl-auto filter-item cat1 cat4">
+                <div class="project-box">
+                    <div class="project-box-img">
+                        <img src="{% static '' %}assets/img/realestate/4.jpg" alt="project image">
+                    </div>
+                    <div class="project-box-content">
+                        <p class="project-subtitle">Green Enclave Phase 4</p>
+                        <h3 class="box-title"><a>Click on Plus Sign</a></h3>
+                        <a href="{% static '' %}assets/img/realestate/04.jpg" class="gallery-btn popup-image"><i class="fa-regular fa-plus"></i></a>
+                    </div>
+                </div>
+            </div><br><br><br><br>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

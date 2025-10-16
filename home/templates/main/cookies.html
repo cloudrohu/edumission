@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cookie Policy | {{ company_name | default:"Your Company" }}</title>
+  <meta name="description" content="Read the Cookie Policy of {{ company_name | default:'Your Company' }} to understand how we use cookies, trackers, and how you can control them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    @media print {
+      .no-print { display: none !important; }
+      a[href]:after { content: " (" attr(href) ")"; font-size: 0.85em; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white border-b sticky top-0 z-20">
+    <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/static/img/logo.png" alt="{{ company_name | default:'Your Company' }} Logo" class="h-10 w-auto" onerror="this.style.display='none'">
+        <div>
+          <h1 class="text-xl font-semibold">Cookie Policy</h1>
+          <p class="text-xs text-gray-500">Last updated: <span id="cookie-date">October 14, 2025</span></p>
+        </div>
+      </div>
+      <div class="no-print flex items-center gap-2">
+        <a href="{% url "privacy_policy" %}" class="text-sm px-3 py-2 rounded-lg border hover:bg-gray-100">Privacy Policy</a>
+        <button onclick="window.print()" class="text-sm px-3 py-2 rounded-lg bg-gray-900 text-white hover:opacity-90">Print</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Intro Section -->
+  <section class="bg-gradient-to-b from-white to-gray-50 border-b">
+    <div class="max-w-5xl mx-auto px-4 py-8">
+      <p class="text-sm text-gray-500"><a href="/" class="hover:underline">Home</a> › Cookie Policy</p>
+      <h2 class="mt-3 text-2xl md:text-3xl font-semibold">How We Use Cookies & Similar Technologies</h2>
+      <p class="mt-2 text-gray-600 max-w-3xl">
+        This Cookie Policy explains how <strong>{{ company_name | default:'Your Company' }}</strong> (“we”, “us”, or “our”) uses cookies and similar technologies on our website and services.
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto px-4 py-10 space-y-8">
+    <!-- What Are Cookies -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">1) What Are Cookies?</h3>
+      <p class="mt-2 text-gray-700">
+        Cookies are small text files stored on your device when you visit a website. They help websites function properly, improve user experience, analyze usage, and support marketing.
+      </p>
+    </section>
+
+    <!-- Types of Cookies -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">2) Types of Cookies We Use</h3>
+      <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Essential Cookies:</strong> Required for core functionality (e.g., navigation, security). Cannot be disabled.</li>
+        <li><strong>Analytics Cookies:</strong> Help us understand how visitors use the site so we can improve it.</li>
+        <li><strong>Functional Cookies:</strong> Remember your settings, preferences, and enhance personalization.</li>
+        <li><strong>Marketing/Advertising Cookies:</strong> Used to deliver relevant ads and measure campaign effectiveness.</li>
+        <li><strong>Third-Party Cookies:</strong> Placed by services we use (e.g., Google Analytics, Facebook Pixel) for analytics or marketing.</li>
+      </ul>
+    </section>
+
+    <!-- Why We Use Cookies -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">3) Why We Use Cookies</h3>
+      <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+        <li>Ensure website functionality and security</li>
+        <li>Improve performance and user experience</li>
+        <li>Analyze traffic and usage patterns</li>
+        <li>Customize content and remember preferences</li>
+        <li>Deliver targeted ads and marketing offers</li>
+      </ul>
+    </section>
+
+    <!-- Managing Cookies -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">4) How to Manage or Disable Cookies</h3>
+      <p class="mt-2 text-gray-700">
+        You can control non-essential cookies via:
+      </p>
+      <ul class="mt-3 list-disc pl-6 space-y-2 text-gray-700">
+        <li>Your browser settings — block or delete cookies.</li>
+        <li>Our cookie banner (where available) to accept or reject categories.</li>
+        <li>Opt-out tools provided by third-party analytics or ad platforms.</li>
+      </ul>
+      <p class="mt-3 text-gray-700">
+        If you disable certain cookies, parts of our website may not function properly.
+      </p>
+    </section>
+
+    <!-- Third-Party Services -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">5) Third-Party Cookies & Services</h3>
+      <p class="mt-2 text-gray-700">
+        Some cookies are placed by third parties that provide services for analytics, ads, or social media. We do not control these cookies. Please check the third party’s privacy and cookie policies for more information:
+      </p>
+      <ul class="mt-3 list-disc pl-6 text-gray-700 space-y-1">
+        <li>Google Analytics — <a href="https://policies.google.com/technologies/cookies" class="underline" target="_blank">Learn more</a></li>
+        <li>Facebook Pixel — <a href="https://www.facebook.com/policies/cookies/" class="underline" target="_blank">Learn more</a></li>
+      </ul>
+    </section>
+
+    <!-- Legal Compliance -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">6) Legal Compliance (India & International)</h3>
+      <p class="mt-2 text-gray-700">
+        We comply with the Digital Personal Data Protection Act, 2023 (India) and applicable international privacy laws like GDPR where relevant.
+      </p>
+    </section>
+
+    <!-- Updates -->
+    <section class="bg-white p-6 rounded-2xl border shadow-sm">
+      <h3 class="text-xl font-semibold">7) Updates to This Policy</h3>
+      <p class="mt-2 text-gray-700">
+        We may update this Cookie Policy from time to time. Updated versions will be posted on this page with a new “Last Updated” date.
+      </p>
+    </section>
+
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-10">
+    <div class="max-w-5xl mx-auto px-4 py-6 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-2">
+      <div class="flex gap-4">
+        <a href="{% url "terms_and_condition" %}" class="hover:underline">Terms of Use</a>
+        <a href="{% url "privacy_policy" %}" class="hover:underline">Privacy Policy</a>
+        <a href="{% url "cookies" %}" class="hover:underline">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>

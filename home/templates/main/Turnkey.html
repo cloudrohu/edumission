@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+
+{% block body %}
+<!--============================== Breadcumb ============================== -->
+<div class="breadcumb-wrapper " data-bg-src="{% static '' %}assets/img/bg/breadcumb-bg.jpg">
+    <div class="container">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">Turnkey Services</h1>
+            <ul class="breadcumb-menu">
+                <li><a href="home-company.html">Home</a></li>
+                <li>Turnkey</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--============================== About Area  ==============================-->
+<div class="overflow-hidden overflow-hidden space" id="about-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="img-box3">
+                    <div class="img1">
+                        <img src="{% static '' %}assets/img/turnkey/10.jpg" alt="About">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="title-area mb-20 pe-xl-5 me-xl-5">
+                    <span class="sub-title style1">Our Services</span>
+                    <h2 class="sec-title mb-20">Turnkey Projects Service</h2>
+                </div>
+                <p class="sec-text mb-30" align="justify">We, in Imaarat, specialize in turnkey assignments and interior solutions in the most advanced and sophisticated way. Turnkey services refer to a single-window solution for our clients. We undertake a project from the planning stage to its final stage that is ready for immediate use. We undertake the work of turnkey construction services in which everything regarding the construction and architectural services is provided by the company. In this regard, a construction contract is signed showing the detail of brands and specifications to be used by the company, and the price is fixed at the time of the contract.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

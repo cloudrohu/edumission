@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+<br>
+
+<!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+{% block body %}
+
+  <!-- HEADER INCLUDE -->
+  <div id="header"></div>
+
+  <!-- HERO SECTION -->
+  <section class="relative w-full h-[500px]">
+    {% for rs in setting %}
+    <img src="{{rs.services_hero.url}}" alt="Hero Banner" class="w-full h-full object-cover">
+    {% endfor %}
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-sm px-6 py-2 rounded-full text-white">
+      <nav aria-label="Breadcrumb">
+        <ol class="flex space-x-2 breadcrumb">
+          <li><a href="index.html" class="flex items-center"><i class="fa fa-home mr-1"></i> Home</a></li>
+          <li><span class="mx-1 text-gray-300">/</span></li>
+          <li class="text-gray-200">Services</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+
+<!-- ========================== SERVICES SECTION START ========================== -->
+  <section class="bg-[#faf4eb] py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <!-- Title -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-3">Empowering Your Educational Journey</h2>
+        <div class="w-20 h-[3px] bg-[#955c5a] mx-auto rounded"></div>
+      </div>
+
+      {% for rs in services %}
+      <!-- Service Block -->
+      <div class="grid md:grid-cols-2 gap-10 items-center mb-20 {% if forloop.counter|divisibleby:2 %}md:flex-row-reverse{% endif %}" data-aos="fade-up">
+        
+        <!-- Image -->
+        <div class="{% if forloop.counter|divisibleby:2 %}md:order-2{% endif %}">
+          <img src="{{ rs.image.url }}" alt="{{ rs.title }}" 
+              class="rounded-xl shadow-lg hover:scale-105 transition-transform duration-500">
+        </div>
+
+        <!-- Content -->
+        <div class="{% if forloop.counter|divisibleby:2 %}md:order-1{% endif %}">
+          <h3 class="text-2xl font-semibold mb-3">{{ rs.title }}</h3>
+          <div class="w-12 h-1 bg-[#955c5a] mb-4"></div>
+          <p class="text-gray-700 leading-relaxed">
+            {{ rs.description }}
+          </p>
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+  </section>
+<!-- ========================== SERVICES SECTION END ========================== -->
+
+
+
+
+
+
+
+<!-- AOS Library -->
+ 
+{% endblock body %}

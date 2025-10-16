@@ -1,0 +1,109 @@
+<!-- footer-start -->
+{% load static %}
+{% for i in setting %}
+
+
+<!-- ===== FOOTER START ===== -->
+<footer class="bg-gray-900 text-gray-300 pt-16 pb-8 relative">
+  <div class="container mx-auto px-6 md:px-12 lg:px-20">
+    <!-- Grid -->
+    <div class="grid gap-10 md:grid-cols-4">
+      <!-- Logo + About -->
+      <div>
+        <a href="/" class="flex items-center gap-3 mb-6">
+          <img src="{{ rs.logo.url }}" alt="Logo" class="h-16 w-auto">
+        </a>
+        <p class="text-sm leading-6">
+          {{ rs.short_description|default:"Empowering Education Through Digital Excellence." }}
+        </p>
+        <!-- Social Icons -->
+        <div class="flex gap-5 mt-6">
+          <a href="{{ rs.facebook }}" target="_blank" class="text-gray-400 hover:text-indigo-400"><i class="fa-brands fa-facebook-f text-lg"></i></a>
+          <a href="{{ rs.instagram }}" target="_blank" class="text-gray-400 hover:text-indigo-400"><i class="fa-brands fa-instagram text-lg"></i></a>
+          <a href="{{ rs.twitter }}" target="_blank" class="text-gray-400 hover:text-indigo-400"><i class="fa-brands fa-twitter text-lg"></i></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-6">Quick Links</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="{% url 'aboutus' %}" class="hover:text-indigo-400 transition">About Us</a></li>
+          <li><a href="{% url 'service' %}" class="hover:text-indigo-400 transition">Services</a></li>
+          <li><a href="{% url 'gallery' %}" class="hover:text-indigo-400 transition">Gallery</a></li>
+          <li><a href="{% url 'contactus' %}" class="hover:text-indigo-400 transition">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal Links -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-6">Legal</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="{% url "terms_and_condition" %}" class="hover:text-indigo-400 transition">Terms & Conditions</a></li>
+          <li><a href="{% url "privacy_policy" %}" class="hover:text-indigo-400 transition">Privacy Policy</a></li>
+          <li><a href="{% url "cookies" %}" class="hover:text-indigo-400 transition">Cookie Policy</a></li>
+        </ul>
+
+        <!-- Newsletter -->
+        <div class="mt-6">
+          <p class="text-sm mb-2">📬 Subscribe to our newsletter</p>
+          <form class="flex" onsubmit="event.preventDefault(); this.reset(); alert('Thanks for subscribing!')">
+            <input type="email" placeholder="Enter your email" class="w-full px-3 py-2 text-sm text-gray-900 rounded-l-md focus:outline-none" required>
+            <button type="submit" class="bg-indigo-600 px-4 py-2 text-white text-sm rounded-r-md hover:bg-indigo-700">Go</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-white text-lg font-semibold mb-6">Contact Info</h3>
+        <ul class="space-y-4 text-sm">
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-phone text-indigo-400 mt-1"></i>
+            <a href="tel:+91{{ rs.phone }}" class="hover:text-indigo-400">+91 {{ rs.phone }}</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-envelope text-indigo-400 mt-1"></i>
+            <a href="mailto:{{ rs.email }}" class="hover:text-indigo-400">{{ rs.email }}</a>
+          </li>
+          <li class="flex items-start gap-3">
+            <i class="fa-solid fa-location-dot text-indigo-400 mt-1"></i>
+            <span>{{ rs.address }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+      <p>© <span id="year"></span> {{ rs.copy_right }}. All Rights Reserved.</p>
+      <div class="flex gap-4 mt-3 md:mt-0">
+        <a href="{% url "terms_and_condition" %}" class="hover:text-indigo-400">Terms</a>
+        <a href="{% url "privacy_policy" %}" class="hover:text-indigo-400">Privacy</a>
+        <a href="{% url "cookies" %}" class="hover:text-indigo-400">Cookies</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie Consent Bar -->
+  <div id="cookieBar" class="fixed bottom-0 left-0 w-full bg-gray-800 text-gray-200 text-sm py-3 px-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3 shadow-lg">
+    <span>🍪 We use cookies to improve your experience. By continuing, you agree to our <a href="{% url "cookies" %}" class="underline hover:text-indigo-400">Cookie Policy</a>.</span>
+    <button onclick="acceptCookies()" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 text-white text-sm rounded-md w-fit">Accept</button>
+  </div>
+</footer>
+
+<script>
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.getElementById('cookieBar').classList.add('hidden');
+  }
+  if (localStorage.getItem('cookiesAccepted') === 'true') {
+    document.getElementById('cookieBar').classList.add('hidden');
+  }
+</script>
+
+<!-- ===== FOOTER END ===== -->
+{% endfor %}
+<!-- footer-end -->
+
+ 
