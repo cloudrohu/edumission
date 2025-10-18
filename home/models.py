@@ -279,3 +279,5 @@ class Online_Universities(models.Model):
 
     def __str__(self):
         return self.Title    
+    
+    

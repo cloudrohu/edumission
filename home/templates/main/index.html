@@ -299,52 +299,54 @@
 
 
 
-      <!--  ONLINE UNIVERSITIES SECTION START  -->
-      <section class="bg-[#f8f1e6] py-16">
-        <div class="max-w-7xl mx-auto px-4">
 
-          <!-- SECTION HEADING -->
-          <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Online Universities</h2>
-            <div class="h-[2px] w-36 bg-[#a86b69] mx-auto mt-3"></div>
-          </div>
-
-          <!-- LOOP THROUGH UNIVERSITIES -->
-          {% for uni in online_universities %}
-            <div class="flex flex-col {% if forloop.counter|divisibleby:2 %}lg:flex-row-reverse{% else %}lg:flex-row{% endif %} items-start gap-8 mb-12">
-              
-              <!-- Image -->
-              <div class="flex-1">
-                {% if uni.image %}
-                  <img src="{{ uni.image.url }}" alt="{{ uni.Title }}" class="w-full h-[300px] object-cover rounded-lg shadow-md">
-                {% else %}
-                  <img src="{% static 'assets/images/default-image.jpg' %}" alt="Default Image" class="w-full h-[300px] object-cover rounded-lg shadow-md">
-                {% endif %}
-              </div>
-
-              <!-- Content -->
-              <div class="flex-1">
-                <h3 class="text-2xl font-bold mb-2 text-gray-900">{{ uni.Title }}</h3>
-                <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
-                <p class="text-gray-700 leading-relaxed mb-5">
-                  {{ uni.Description }}
-                </p>
-                <a href="#">
-                  <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
-                    Enquire Now
-                  </button>
-                </a>
-              </div>
-
-            </div>
-          {% empty %}
-            <p class="text-center text-gray-600">No Online Universities added yet.</p>
-          {% endfor %}
-
-        </div>
-      </section>
-      <!--  ONLINE UNIVERSITIES SECTION END  -->
     <hr>
+
+          <!--  ONLINE UNIVERSITIES SECTION START  -->
+            <section class="bg-[#f8f1e6] py-16">
+              <div class="max-w-7xl mx-auto px-4">
+
+                <!-- SECTION HEADING -->
+                <div class="text-center mb-12">
+                  <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Online Universities</h2>
+                  <div class="h-[2px] w-36 bg-[#a86b69] mx-auto mt-3"></div>
+                </div>
+
+                <!-- LOOP THROUGH UNIVERSITIES -->
+                {% for uni in online_universities %}
+                  <div class="flex flex-col {% if forloop.counter|divisibleby:2 %}lg:flex-row-reverse{% else %}lg:flex-row{% endif %} items-start gap-8 mb-12">
+                    
+                    <!-- Image -->
+                    <div class="flex-1">
+                      {% if uni.image %}
+                        <img src="{{ uni.image.url }}" alt="{{ uni.Title }}" class="w-full h-[300px] object-cover rounded-lg shadow-md">
+                      {% else %}
+                        <img src="{% static 'assets/images/default-image.jpg' %}" alt="Default Image" class="w-full h-[300px] object-cover rounded-lg shadow-md">
+                      {% endif %}
+                    </div>
+
+                    <!-- Content -->
+                    <div class="flex-1">
+                      <h3 class="text-2xl font-bold mb-2 text-gray-900">{{ uni.Title }}</h3>
+                      <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
+                      <p class="text-gray-700 leading-relaxed mb-5">
+                        {{ uni.Description }}
+                      </p>
+                      <a href="#">
+                        <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
+                          Enquire Now
+                        </button>
+                      </a>
+                    </div>
+
+                  </div>
+                {% empty %}
+                  <p class="text-center text-gray-600">No Online Universities added yet.</p>
+                {% endfor %}
+
+              </div>
+            </section>
+      <!--  ONLINE UNIVERSITIES SECTION END  -->
 
 
       <!-- ===== CONTACT SECTION ===== -->
@@ -483,77 +485,9 @@
       <!-- ===== CONTACT SECTION END ===== -->
       <hr>
 
-      <section class="bg-[#f8f1e6] py-16">
-        <div class="max-w-7xl mx-auto px-4">
-
-          <!-- SECTION HEADING -->
-          <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Online Universities</h2>
-            <div class="h-[2px] w-36 bg-[#a86b69] mx-auto mt-3"></div>
-          </div>
-
-          <!-- UNIVERSITY 1 - Amity (Image Left) -->
-          <div class="flex flex-col lg:flex-row items-start gap-8 mb-12">
-            <!-- Image -->
-            <div class="flex-1">
-              <img 
-                src="https://www.edumissions.in/appassets/mediaassets/7b06574086fb4125a0a96c208eef0d19/image/Amity_University_Online_2_be6c997565.webp" 
-                alt="Amity University Online" 
-                class="w-full h-[300px] object-cover rounded-lg shadow-md">
-            </div>
-
-            <!-- Content -->
-            <div class="flex-1">
-              <h3 class="text-2xl font-bold mb-2 text-gray-900">Amity University Online</h3>
-              <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
-              <p class="text-gray-700 leading-relaxed mb-5">
-                Amity University Online offers a range of undergraduate and postgraduate programs in various fields 
-                like business administration, marketing, and technology. Known for its excellent infrastructure and 
-                industry-oriented curriculum, Amity Online provides students with the flexibility to study from anywhere 
-                while gaining insights from experienced faculty and industry leaders.
-              </p>
-              <a href="#">
-                <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
-                  Enquire Now
-                </button>
-              </a>
-            </div>
-          </div>
-
-          <!-- UNIVERSITY 2 - SMU (Image Right) -->
-          <div class="flex flex-col lg:flex-row-reverse items-start gap-8">
-            <!-- Image -->
-            <div class="flex-1">
-              <img 
-                src="https://www.edumissions.in/appassets/mediaassets/7b06574086fb4125a0a96c208eef0d19/image/SMU[1].jpg" 
-                alt="Sikkim Manipal University" 
-                class="w-full h-[300px] object-cover rounded-lg shadow-md">
-            </div>
-
-            <!-- Content -->
-            <div class="flex-1">
-              <h3 class="text-2xl font-bold mb-2 text-gray-900">
-                Sikkim Manipal University (SMU) Distance Education
-              </h3>
-              <h4 class="font-semibold mb-2 text-gray-800">Why This University</h4>
-              <p class="text-gray-700 leading-relaxed mb-5">
-                Sikkim Manipal University offers a diverse range of online and distance education programs. 
-                SMU's online programs are designed to provide high-quality learning to students in various fields 
-                like business management, technology, and healthcare. The university’s advanced e-learning system 
-                ensures a seamless educational experience for students from all over the world.
-              </p>
-              <a href="#">
-                <button class="bg-[#a86b69] text-white font-semibold px-5 py-2 rounded hover:bg-[#955c5a] transition">
-                  Enquire Now
-                </button>
-              </a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <!--  ONLINE UNIVERSITIES SECTION END  -->
       <hr>
+
+
 
 
 
